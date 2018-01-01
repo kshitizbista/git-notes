@@ -1,0 +1,92 @@
+Reference :- https://www.youtube.com/watch?v=HbSjyU2vf6Y&list=PL4cUxeGkcC9goXbgTDQ0n_4TBzOO0ocPR&index=12
+Channel :- The Net Ninja 
+Title :- Git & GitHub Tutorial for Beginners
+
+1) Install GitHub
+	~ install git
+	~ git --version
+	
+	register username and email
+		~ git config --global user.name username
+		~ git config --global user.email email123@gmail.com
+	
+	view username/email 	
+		~ git config user.name
+		~ git config user.email
+		
+2) Create a repo
+	~ git init
+	
+3) Staging
+	~ git status
+	~ git add filename
+	~ git status
+
+4) Removing From Staging Area	
+	~ git rm --cached filename
+
+5) Commit 
+	~ git commit -m "message"
+	
+6) Show Log
+	~ git log
+	~ git log --oneline
+
+7) Revision/Revert
+	~ git checkout id (id can be retrive from git log --oneline) / (This is read only)
+	~ git checkout master (Switch to master repo)
+	~ git revert id (:wq to exit the revert screen) / (Reverts to the revision)
+	~ git reset --hard (permanently delete files)
+	
+8) Branches
+	~ git branch branchName (Create a branch)
+	~ git branch -a (view the list of branches)
+	~ git checkout branchName (switch to the given branch name)
+	~ git checkout -b branchName (shortcut to create branch and switch to the given branch)
+	~ git branch -D branchName (Delete branch that is not merged to master/ use -d to delete branch that is already merged to master)
+
+9) Merging Branch / Conflicts
+	Merge
+		~ git checkout master (switch to master repo)   
+		~ git merge branchName1	(merge branchName1 to master)
+		~ git merge branchName2 (merge branchName2 to master)
+	Conflicts
+		~ in case of conflict when git merge command ,manually resolve the conflict then
+			perform git add command and then git commit command(-m is not necessaary coz we are basically commitinng the merge)
+
+10)	GitHub
+		Push Existing local repo to remote repo - METHOD 1
+			~ Create a remote repo in github and copy link
+			~ In local repo , git push remoteURL master (pushes master branch to the remote repo)
+			
+		Give alias to remote url so that u dont have to write url every time
+			~ git remote add origin remoteURL
+			~ git push origin master	
+			
+		Clone Remote Repo - METHOD 2 (In case u dont have local repo already)
+			~ Create a remote repo in github and copy link
+			~ git clone remoteUrl
+			
+			Commiting to remote repo
+			~ cd localRepo
+			~ git add . 
+			~ git commit -m "message"
+			~ git push origin master (in case of cloned repo, it automatically sets remoteUrl to alias 'origin'. See git remote -v )	
+			
+11) Collaborating on GitHub	
+		Update local repo to reflect remote repo changes
+			~ git pull origin master (first, switch to master repo in local)
+	
+		Dont directly merge local repo to remote 
+			~ git checkout -b branchName (Create branch)
+			~ git add . 
+			~ git commit -m "message"
+			~ git push origin branchName (Push the branch to remote repo)
+			~ in github click compare & pull
+			~ You can leave comment in the write section and then click create pull request to put request to merge this branch to the master . You can also assign reviewer.
+				And then Merge Pull Request.
+				
+12) Forking & Contributing on GitHub (To Contribute to some kind of open project)
+					
+		
+		
